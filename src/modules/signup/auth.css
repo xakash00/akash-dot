@@ -1,0 +1,64 @@
+.authBtn {
+  width: 100%;
+  color: #fff;
+  background-color: #00adb5;
+  border: none;
+  border-radius: 8px;
+  padding:0.5rem 1rem 0.5rem 1rem
+}
+.disabledBtn{
+  width: 100%;
+  color: #00adb5;
+  background-color: #ccc;
+  border: none;
+  border-radius: 8px;
+  padding:0.5rem 1rem 0.5rem 1rem
+}
+.formLabel {
+  color: #393e46;
+}
+.heading {
+  color: #00adb5;
+  font-weight: 600;
+  font-size: 2rem;
+}
+a {
+  text-decoration: none;
+}
+.authInput {
+  border: 1px solid #ccc;
+  border-radius: 7px;
+}
+
+.authInput::placeholder {
+  color: #ccc;
+  font-size: 0.9rem;
+}
+.dangerText {
+  font-size: 0.8rem;
+}
+
+.subheading {
+  color: #393e46;
+  font-size: 0.8rem;
+}
+.eyeIcon {
+  position: absolute;
+  color: #00adb5;
+  right: 10rem;
+}
+@media only screen and (max-width: 900px) {
+  .eyeIcon {
+    position: relative;
+    color: #00adb5;
+    right: 2rem;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .eyeIcon {
+    position: absolute;
+    color: #00adb5;
+    right: 6rem;
+  }
+}
