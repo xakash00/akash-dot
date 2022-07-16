@@ -1,5 +1,5 @@
 import "./App.css";
-import AOS from "aos";
+import "react-loading-skeleton/dist/skeleton.css";
 import "aos/dist/aos.css";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
