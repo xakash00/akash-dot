@@ -3,6 +3,7 @@ import { all } from "redux-saga/effects";
 import { watchSignupWorker } from "./authSaga";
 import { watchFetchWeatherWorker } from "./weatherSaga";
 import { watchFetchMemeWorker } from "./memeSaga";
+import { watchFetchMarketPlaceWorker } from "./marketPlaceSaga";
 
 export default function* rootSaga() {
   yield all([
@@ -10,6 +11,7 @@ export default function* rootSaga() {
     watchSavedQuotesWorker(),
     watchSignupWorker(),
     watchFetchWeatherWorker(),
-    watchFetchMemeWorker()
+    watchFetchMemeWorker(),
+    watchFetchMarketPlaceWorker()
   ]);
 }

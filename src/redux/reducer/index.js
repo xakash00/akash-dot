@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 import tweetReducer from "./quotesReducer";
 import savedQuotesReducer from "./savedQuotesReducer";
-import memeReducer from "./memeReducer";
+import marketReducer from "./marketPlaceReducer";
 const allReducers = combineReducers({
   tweetReducer,
   savedQuotesReducer,
-  memeReducer,
+  marketReducer
 });
 export default allReducers;

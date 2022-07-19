@@ -67,7 +67,7 @@ const Tweets = ({ mode }) => {
   return (
     <>
       <div className="mx-auto page text-center">
-      <Margin />
+        <Margin />
         {tweetReducer.loading ? (
           <Skeleton wrapper={SearchPlaceholder} />
         ) : (
@@ -87,7 +87,7 @@ const Tweets = ({ mode }) => {
         {tweetReducer.loading === true ? (
           <Skeleton wrapper={Box} count={10} />
         ) : filterData.length === 0 ? (
-          <NoResults/>
+          <NoResults />
         ) : (
           filterData?.slice(offset, offset + perPage)?.map((item, index) => {
             return (
@@ -103,7 +103,7 @@ const Tweets = ({ mode }) => {
             );
           })
         )}
-        <div className="d-flex align-items-center mt-4">
+        {filterData.length !== 0 && <div className="d-flex align-items-center mt-4">
           <ReactPaginate
             pageCount={pageCount}
             marginPagesDisplayed={0}
@@ -117,7 +117,7 @@ const Tweets = ({ mode }) => {
             breakLabel={"..."}
             breakClassName={"break-me"}
           />
-        </div>
+        </div>}
       </div>
     </>
   );
