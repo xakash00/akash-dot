@@ -4,9 +4,12 @@
 
 .page {
   position: absolute;
-  top: 6rem;
+  top: 4rem;
   left: 0;
   right: 0;
+}
+a{
+  text-decoration: none;
 }
 .fade-appear,
 .fade-enter {

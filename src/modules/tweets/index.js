@@ -14,7 +14,12 @@ import { v1 as uuidv1 } from "uuid";
 import { toast } from "react-toastify";
 import Card from "../../components/card";
 import ReactPaginate from "react-paginate";
-import { Box, SearchPlaceholder } from "../../components/loading/placeholderLoading";
+import {
+  Box,
+  SearchPlaceholder,
+} from "../../components/loading/placeholderLoading";
+import NoResults from "../../components/noResults";
+import * as Animation from "../../assets/noResults.json"
 const Tweets = ({ mode }) => {
   const [perPage] = useState(10);
   const [search, setSearch] = useState("");
@@ -48,33 +53,43 @@ const Tweets = ({ mode }) => {
     );
     localStorage.setItem("localQuotesObj", JSON.stringify(localQuotesObj));
   };
+
+  const filterData = Object.values(tweetReducer.tweets).filter((item) => {
+    if (search === "") {
+      return item;
+    } else if (
+      item.author !== null &&
+      item.author.toLowerCase().includes(search.toLowerCase())
+    ) {
+      return item;
+    }
+  });
   return (
     <>
       <div className="mx-auto page text-center">
-        {tweetReducer.loading ? <Skeleton wrapper={SearchPlaceholder} /> : <div>
-          <SearchBox
-            onChange={(e) => setSearch(e.target.value)}
-            value={search}
-            name="search"
-            placeholder="Search by Author"
-            color={mode === "light" ? "#000" : "#fff"}
-          />
-          <SearchIcon className="ri-search-line searchIcon"></SearchIcon>
-        </div>}
+      <Margin />
+        {tweetReducer.loading ? (
+          <Skeleton wrapper={SearchPlaceholder} />
+        ) : (
+          <div>
+            <SearchBox
+              onChange={(e) => setSearch(e.target.value)}
+              value={search}
+              name="search"
+              placeholder="Search by Author"
+              color={mode === "light" ? "#000" : "#fff"}
+            />
+            <SearchIcon className="ri-search-line searchIcon"></SearchIcon>
+          </div>
+        )}
 
         <Margin />
-        {tweetReducer.loading === true ? <Skeleton wrapper={Box} count={10} /> : Object.values(tweetReducer?.tweets)
-          .filter((item) => {
-            if (search === "") {
-              return item;
-            } else if (
-              item.author !== null &&
-              item.author.toLowerCase().includes(search.toLowerCase())
-            ) {
-              return item;
-            }
-          })?.slice(offset, offset + perPage)
-          ?.map((item, index) => {
+        {tweetReducer.loading === true ? (
+          <Skeleton wrapper={Box} count={10} />
+        ) : filterData.length === 0 ? (
+          <NoResults/>
+        ) : (
+          filterData?.slice(offset, offset + perPage)?.map((item, index) => {
             return (
               <>
                 <Card
@@ -86,7 +101,8 @@ const Tweets = ({ mode }) => {
                 ></Card>
               </>
             );
-          })}
+          })
+        )}
         <div className="d-flex align-items-center mt-4">
           <ReactPaginate
             pageCount={pageCount}
@@ -104,7 +120,6 @@ const Tweets = ({ mode }) => {
         </div>
       </div>
     </>
-
   );
 };
 

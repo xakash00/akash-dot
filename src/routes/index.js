@@ -49,7 +49,7 @@ const Index = () => {
               element={<FavoriteTweets mode={mode} />}
               path="/favourite-tweets"
             />
-            <Route element={<Sidebar><Outlet /></Sidebar>}>
+            <Route element={<Sidebar mode={mode}><Outlet /></Sidebar>}>
               <Route element={<Products />} path="/market-place" />
               <Route element={<Cart />} path="/your-cart" />
               <Route element={<Orders />} path="/your-orders" />
