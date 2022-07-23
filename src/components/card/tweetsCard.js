@@ -12,15 +12,12 @@ import {
 import { toast } from "react-toastify";
 import CopyToClipboard from "react-copy-to-clipboard";
 import Aos from "aos";
-import Skeleton from "react-loading-skeleton";
-import { Box } from "../loading/placeholderLoading";
 import { useLocation } from "react-router-dom";
 
 const Card = ({
   id,
   item,
-  handleShow,
-  handleHide,
+  delIndex,
   mode,
   handleAdd,
   handleDelete,
@@ -41,7 +38,7 @@ const Card = ({
   useEffect(() => {
     Aos.init();
   }, []);
-
+  console.log(id)
   return (
     <div data-aos="fade-up">
       <TweetCard
@@ -99,7 +96,7 @@ const Card = ({
         <Button
           onClick={() =>
             location.pathname === "/favourite-tweets"
-              ? handleShow()
+              ? handleDelete(delIndex)
               : handleAdd(item)
           }
         >

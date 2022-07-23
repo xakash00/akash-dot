@@ -160,18 +160,45 @@ color:${props => props.color};
 `
 
 export const Card = styled.div`
-background-color: ${props=>props.bgColor};
+background-color: ${props => props.bgColor};
 border: none;
 `
 
 export const StyledLink = styled(NavLink)`
-  color: ${props=>props.color};
+  color: ${props => props.color};
   transition: font-size 0.3s ease-in-out;
   &:hover {
     font-size: 1.1rem;
-    color: ${props=>props.color}
+    color: ${props => props.color}
   }
   &.active {
-    color: ${props=>props.active};
+    color: ${props => props.active};
   }
 `;
+
+export const ProductCard = styled.div`
+width: 40rem;
+border:1px solid #E0D8D8;
+border-radius: 5px;
+font-family: "Montserrat", sans-serif;
+overflow: hidden;
+border-radius: 10px;
+transition: box-shadow 0.3s ease-in-out;
+@media (max-width: 768px) {
+    width: 100%;
+    text-align: left;
+  }
+  &:hover {
+    box-shadow: 0px 0px 10px #ccc;
+  }
+`
+export const CardBody = styled.div`
+padding: 1rem;
+@media (max-width: 768px) {
+    padding: 0.5rem;
+  }
+`
+export const ProductImage = styled.img`
+object-fit: cover;
+transition: transform 0.3s ease-in;
+  ${(props) => props.hover === true && `transform: scale(1.1)`}`

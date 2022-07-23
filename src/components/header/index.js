@@ -68,7 +68,7 @@ const Header = ({ toggleMode, mode }) => {
               id="navbarSupportedContent"
             >
               <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li className="nav-item">
+                <li className="nav-item">
                   <NavLink
                     to="/market-place"
                     className="nav-link"
@@ -122,21 +122,61 @@ const Header = ({ toggleMode, mode }) => {
         )}
       </nav>
       <Sidebar
-        className={mode==="light"?"sidebarLight":"sidebarDark"}
+        className={mode === "light" ? "sidebarLight" : "sidebarDark"}
         sidebar={sidebar === true ? "0%" : "-100%"}
 
       >
         <div style={{ marginTop: "10rem" }}>
-          <ul onClick={() => setSidebar(!sidebar)}>
-            <li>
+          <ul className="list-unstyled" onClick={() => setSidebar(!sidebar)}>
+            <li className="">
+              <NavLink
+                to="/market-place"
+                className="nav-link"
+                aria-current="page"
+                href="#"
+              >
+                <ThemedText color={mode === "light" ? "#000" : "#fff"}>
+                  Market Place
+                </ThemedText>
+              </NavLink>
+            </li>
+            <li className="">
+              <NavLink
+                to="/tweets"
+                className="nav-link"
+                aria-current="page"
+                href="#"
+              >
+                <ThemedText color={mode === "light" ? "#000" : "#fff"}>
+                  Tweets
+                </ThemedText>
+              </NavLink>
+            </li>
+            <li className="">
+              <NavLink
+                to="/favourite-tweets"
+                className="nav-link"
+                aria-current="page"
+                href="#"
+              >
+                <ThemedText color={mode === "light" ? "#000" : "#fff"}>
+                  Favourite tweets
+                </ThemedText>
+              </NavLink>
+            </li>
+            <li className="">
               <button className="btn" onClick={toggleMode}>
                 {mode === "light" ? (
                   <i style={{ color: "blue" }} className="ri-moon-fill"></i>
                 ) : (
-                  <i style={{ color: "yellow" }} className="ri-sun-fill"></i>
+                  <i
+                    style={{ color: "yellow" }}
+                    className="ri-sun-fill"
+                  ></i>
                 )}
               </button>
             </li>
+
           </ul>
 
 

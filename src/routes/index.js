@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Outlet, Route, Routes, useLocation } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import Tweets from "../modules/tweets";
@@ -21,7 +21,7 @@ const Index = () => {
   const location = useLocation();
   const currentKey = location.pathname.split("/")[1] || "/";
   const [mode, setMode] = useState("light");
-
+  const localQuotesObj = []
 
 
   const toggleMode = () => {
@@ -33,6 +33,10 @@ const Index = () => {
       document.body.style.backgroundColor = "#fff";
     }
   };
+
+  useEffect(() => {
+    window.localStorage.setItem("localQuotesObj", JSON.stringify(localQuotesObj));
+  }, [])
 
   return (
     <>

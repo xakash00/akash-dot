@@ -9,24 +9,22 @@ import {
   TweetCard,
 } from "../../styledComponents/styles";
 import Skeleton from "react-loading-skeleton";
-import { initialQuotesObj } from "../../redux/config";
 import { v1 as uuidv1 } from "uuid";
 import { toast } from "react-toastify";
-import Card from "../../components/card";
+import Card from "../../components/card/tweetsCard";
 import ReactPaginate from "react-paginate";
 import {
   Box,
   SearchPlaceholder,
 } from "../../components/loading/placeholderLoading";
 import NoResults from "../../components/noResults";
-import * as Animation from "../../assets/noResults.json"
 const Tweets = ({ mode }) => {
   const [perPage] = useState(10);
   const [search, setSearch] = useState("");
   const [offset, setOffset] = useState(0);
   const [pageCount, setPageCount] = useState(0);
   const dispatch = useDispatch();
-  const localQuotesObj = initialQuotesObj ?? [];
+  const localQuotesObj = JSON.parse(localStorage.getItem("localQuotesObj")) ?? [];
   const tweetReducer = useSelector((store) => store.reducers.tweetReducer);
   const totalItem = tweetReducer.data ? tweetReducer.data.length : 1643;
 

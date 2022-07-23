@@ -20,7 +20,7 @@ const Sidebar = ({ children, mode }) => {
     return (
         <div className="container-fluid page">
             <div className="row">
-                <div className="col-3">
+                <div className="col-3 d-none d-sm-block">
                     <SideNav
                         bgColor={theme("#b8c6db", "#537895")}
                         bgImage={
