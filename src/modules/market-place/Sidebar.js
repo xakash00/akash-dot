@@ -15,12 +15,12 @@ const Sidebar = ({ children, mode }) => {
     const theme = (param1, param2) => {
         return mode === "light" ? param1 : param2;
     };
-    const name = localStorage.getItem("userName");
-    const email = localStorage.getItem("userEmail");
+    const name = localStorage.getItem("userName")??"";
+    const email = localStorage.getItem("userEmail")??"";
     return (
         <div className="container-fluid page">
             <div className="row">
-                <div className="col-3 d-none d-sm-block">
+                <div className="col-lg-3 col-md-3">
                     <SideNav
                         bgColor={theme("#b8c6db", "#537895")}
                         bgImage={
@@ -84,7 +84,8 @@ const Sidebar = ({ children, mode }) => {
                         </ul>
                     </SideNav>
                 </div>
-                <div className="col-8">{children}</div>
+                <div className="space col-md-1"></div>
+                <div className="col-lg-8 col-md-8">{children}</div>
             </div>
         </div>
     );

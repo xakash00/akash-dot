@@ -7,8 +7,12 @@ import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { Spinner } from "react-bootstrap";
 import { ThemedText } from "../../styledComponents/styles";
+import * as animationData from "../../assets/lottie/auth.json";
+import Lottie from "react-lottie";
+import { useMediaQuery } from 'react-responsive'
 const Signup = ({ mode }) => {
   const [loading, setLoading] = useState(false);
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const formik = useFormik({
@@ -34,12 +38,28 @@ const Signup = ({ mode }) => {
       }, 800);
     },
   });
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
   return (
     <div className="page">
       <div className="container-fluid">
         <div className="row">
           <div className="col-md-6">
-            <img src={Img} className="img-fluid" />
+            <div className="mt-5">
+              <Lottie
+                options={defaultOptions}
+                height={isTabletOrMobile ? "10rem" : "30rem"}
+                width={isTabletOrMobile ? "10rem" : "40rem"}
+              />
+            </div>
           </div>
           <div className="col-md-1"></div>
           <div className="col-md-4">

@@ -1,4 +1,4 @@
-import { Margin, TweetCard } from "../../styledComponents/styles";
+import { Margin, ProductCard, TweetCard } from "../../styledComponents/styles";
 
 export function Box({ children }) {
   return (
@@ -25,4 +25,8 @@ export function Text({ children, width }) {
 
 export function SearchPlaceholder({ children }) {
   return <div style={{ width: "30%" }} className="form-control m-auto">{children}</div>
+}
+
+export function ProductPlaceholder({children}){
+return <ProductCard>{children}</ProductCard>
 }

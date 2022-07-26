@@ -57,7 +57,7 @@ export const TweetCard = styled.div`
   width: 40rem;
   height: max-content;
   padding: 1rem;
-  border: 1px solid #ccc;
+  border: 1px solid ${props => props.bgColor};
   border-radius: 10px;
   margin: auto;
   text-align: left;
@@ -110,9 +110,12 @@ export const StyledButton = styled.button`
   color: ${(props) => props.color};
   font-family: "Montserrat", sans-serif;
   background-color: ${(props) => props.bgColor};
+  background-image: ${props=>props.bgImage};
   border: none;
-  border-radius: 7px;
+  border-radius: 4px;
   font-size: ${(props) => props.size};
+  padding:5px;
+  width: 100%;
   @media (max-width: 768px) {
     font-size: ${(props) => props.mSize};
   }
@@ -144,61 +147,72 @@ export const SideNav = styled.div`
   position: fixed;
   text-align: left;
   padding: 1rem;
-  background-color:${props => props.bgColor};
-background-image: ${props => props.bgImage};
+  background-color: ${(props) => props.bgColor};
+  background-image: ${(props) => props.bgImage};
   height: 40rem;
-  box-shadow:0px 0px 7px #ccc;
+  box-shadow: 0px 0px 7px #ccc;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const List = styled.li`
-font-family: "Montserrat", sans-serif;
-padding:1rem;
-border-bottom: 1px solid #ccc;
-display:flex;
-align-items: center;
-color:${props => props.color};
-`
+  font-family: "Montserrat", sans-serif;
+  padding: 1rem;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  color: ${(props) => props.color};
+`;
 
 export const Card = styled.div`
-background-color: ${props => props.bgColor};
-border: none;
-`
+  background-color: ${(props) => props.bgColor};
+  border: none;
+`;
 
 export const StyledLink = styled(NavLink)`
-  color: ${props => props.color};
+  color: ${(props) => props.color};
   transition: font-size 0.3s ease-in-out;
   &:hover {
     font-size: 1.1rem;
-    color: ${props => props.color}
+    color: ${(props) => props.color};
   }
   &.active {
-    color: ${props => props.active};
+    color: ${(props) => props.active};
   }
 `;
 
 export const ProductCard = styled.div`
-width: 40rem;
-border:1px solid #E0D8D8;
-border-radius: 5px;
-font-family: "Montserrat", sans-serif;
-overflow: hidden;
-border-radius: 10px;
-transition: box-shadow 0.3s ease-in-out;
-@media (max-width: 768px) {
+  width: 15rem;
+  border: 1px solid #dee4ea;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+  overflow: hidden;
+  border-radius: 15px;
+  transition: box-shadow 0.3s ease-in-out;
+  @media (max-width: 768px) {
     width: 100%;
     text-align: left;
   }
   &:hover {
     box-shadow: 0px 0px 10px #ccc;
   }
-`
+`;
 export const CardBody = styled.div`
-padding: 1rem;
-@media (max-width: 768px) {
+  padding: 1rem;
+  @media (max-width: 768px) {
     padding: 0.5rem;
   }
-`
+`;
 export const ProductImage = styled.img`
-object-fit: cover;
-transition: transform 0.3s ease-in;
-  ${(props) => props.hover === true && `transform: scale(1.1)`}`
+height:9rem;
+  object-fit: cover;
+  transition: transform 0.3s ease-in;
+  ${(props) => props.hover === true && `transform: scale(1.1)`}
+`;
+
+export const Span = styled.span`
+color:${props => props.color};
+  font-family: "Montserrat", sans-serif;
+font-size:${props => props.size};
+`

@@ -25,7 +25,7 @@ const Card = ({
   const [isHovered, setIsHovered] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
   const location = useLocation();
-  const color = ["#f50", "#2db7f5", "#87d068", "#108ee9"];
+  const color = ["#a020f0",'#FFDB58','#00FFFF'];
   const index = Math.floor(Math.random() * color.length);
   const tweetQuote = () => {
     let postQuote = `https://twitter.com/intent/tweet?text=${item.text}`;
@@ -42,6 +42,7 @@ const Card = ({
   return (
     <div data-aos="fade-up">
       <TweetCard
+        bgColor={color[index]}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         onFocus={() => setIsHovered(true)}

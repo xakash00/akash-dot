@@ -9,21 +9,24 @@ const marketReducer = (state = marketInitState, action) => {
                 ...state,
                 loading: true,
                 error: false,
-                products: {},
+                data: {},
+                products: []
             };
         case MARKET_LOADED:
             return {
                 ...state,
                 loading: false,
                 error: false,
-                products: action.data,
+                data: action.data,
+                products: action.products
             };
         case MARKET_LOADING_FAILED:
             return {
                 ...state,
                 loading: false,
                 error: true,
-                products: action.data,
+                data: action.data,
+
             };
         default:
             return state;

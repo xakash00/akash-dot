@@ -1,6 +1,6 @@
 export const marketInitState = {
-    loading: true,
-    error: false,
-    products: {},
-  };
-  
+  loading: true,
+  error: false,
+  data: {},
+  products: []
+};
