@@ -2,13 +2,14 @@ import { Margin, ProductCard, TweetCard } from "../../styledComponents/styles";
 
 export function Box({ children }) {
   return (
-    <> <TweetCard>
-      <p className="w-100">{children}</p>
-      <p>{children}</p>
-    </TweetCard>
+    <>
+      {" "}
+      <TweetCard>
+        <p className="w-100">{children}</p>
+        <p>{children}</p>
+      </TweetCard>
       <Margin />
     </>
-
   );
 }
 
@@ -22,11 +23,18 @@ export function Text({ children, width }) {
   );
 }
 
-
 export function SearchPlaceholder({ children }) {
-  return <div style={{ width: "30%" }} className="form-control m-auto">{children}</div>
+  return (
+    <div style={{ width: "30%" }} className="form-control m-auto">
+      {children}
+    </div>
+  );
 }
 
-export function ProductPlaceholder({children}){
-return <ProductCard>{children}</ProductCard>
+export function ProductCardLoading({ children }) {
+  return (
+    <div style={{ width: "17rem", height: "19rem" }}>
+      <p style={{ width: "17rem", height: "19rem" }}>{children}</p>
+    </div>
+  );
 }

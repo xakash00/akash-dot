@@ -57,7 +57,7 @@ export const TweetCard = styled.div`
   width: 40rem;
   height: max-content;
   padding: 1rem;
-  border: 1px solid ${props => props.bgColor};
+  border: 1px solid ${(props) => props.bgColor};
   border-radius: 10px;
   margin: auto;
   text-align: left;
@@ -110,11 +110,11 @@ export const StyledButton = styled.button`
   color: ${(props) => props.color};
   font-family: "Montserrat", sans-serif;
   background-color: ${(props) => props.bgColor};
-  background-image: ${props=>props.bgImage};
+  background-image: ${(props) => props.bgImage};
   border: none;
   border-radius: 4px;
   font-size: ${(props) => props.size};
-  padding:5px;
+  padding: 5px;
   width: 100%;
   @media (max-width: 768px) {
     font-size: ${(props) => props.mSize};
@@ -183,16 +183,24 @@ export const StyledLink = styled(NavLink)`
 `;
 
 export const ProductCard = styled.div`
-  width: 15rem;
+  width: 18rem;
   border: 1px solid #dee4ea;
   border-radius: 5px;
   font-family: "Montserrat", sans-serif;
   overflow: hidden;
-  border-radius: 15px;
+  border-radius: 7px;
   transition: box-shadow 0.3s ease-in-out;
   @media (max-width: 768px) {
+    width: 80%;
+    text-align: left;
+    margin: auto;
+    padding-bottom: 0.5rem;
+  }
+  @media (max-width: 1024px) {
     width: 100%;
     text-align: left;
+    margin: auto;
+    padding-bottom: 0.5rem;
   }
   &:hover {
     box-shadow: 0px 0px 10px #ccc;
@@ -205,14 +213,14 @@ export const CardBody = styled.div`
   }
 `;
 export const ProductImage = styled.img`
-height:9rem;
+  height: 15rem;
   object-fit: cover;
   transition: transform 0.3s ease-in;
   ${(props) => props.hover === true && `transform: scale(1.1)`}
 `;
 
 export const Span = styled.span`
-color:${props => props.color};
+  color: ${(props) => props.color};
   font-family: "Montserrat", sans-serif;
-font-size:${props => props.size};
-`
+  font-size: ${(props) => props.size};
+`;
