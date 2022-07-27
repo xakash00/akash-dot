@@ -131,6 +131,7 @@ export const Icon = styled.i`
 export const Button = styled.button`
   border: none;
   background: none;
+
   &:hover {
     border: none;
   }

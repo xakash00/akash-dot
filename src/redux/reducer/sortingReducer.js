@@ -10,7 +10,8 @@ function compare(a, b) {
     return 0;
 }
 
-export const getSortedProducts = (arrayObj, sortBy,category,brands) => {
+export const getSortedProducts = (arrayObj, sortBy,category) => {
+    console.log(category)
     switch (sortBy) {
 
         case 'PRICE_HIGH_TO_LOW':
@@ -30,7 +31,6 @@ export const getSortedProducts = (arrayObj, sortBy,category,brands) => {
 
         case 'CATEGORY':
             return arrayObj.filter(item => item.category === category ? item : null)
-
             
         case 'none':
             return arrayObj;

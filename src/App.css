@@ -83,6 +83,28 @@ background-image: linear-gradient(147deg, #f9fcff 0%, #dee4ea 74%);
 .space{
   display: none;
 }
+.lists > .row {
+	overflow-x: auto;
+	flex-wrap: nowrap;
+	-ms-overflow-style: none;  /* IE and Edge */
+	scrollbar-width: none;  /* Firefox */
+}
+.movie-app::-webkit-scrollbar {
+	display: none;
+}
+.choiceChipGrp{
+width: 100%;
+overflow-x: auto;
+}
+
+.choiceChipGrp::-webkit-scrollbar {
+	display: none;
+}
+.choiceChipGrp {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
   .space{
 display: inline;
