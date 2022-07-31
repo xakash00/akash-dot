@@ -30,7 +30,7 @@ export const Margin = styled.div`
 `;
 
 export const SearchBox = styled.input`
-  width: 21rem;
+
   padding: 1rem;
   height: 2.5rem;
   align-self: center;
@@ -224,4 +224,13 @@ export const Span = styled.span`
   color: ${(props) => props.color};
   font-family: "Montserrat", sans-serif;
   font-size: ${(props) => props.size};
+`;
+
+export const ChoiceChip = styled.div`
+  border: 1px solid #47ccde;
+  padding: 5px 10px 5px 10px;
+  white-space: nowrap;
+  border-radius: 20px;
+  background-image: ${props=>props.bgColor};
+  cursor: pointer;
 `;

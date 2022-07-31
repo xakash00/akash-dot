@@ -9,10 +9,11 @@ import {
   StyledText,
 } from "../../styledComponents/styles";
 import moment from "moment";
+import { useCart } from "react-use-cart";
 
 const ProdCard = ({ item }) => {
   const [isHovered, setIsHovered] = useState(false);
-
+  const { addItem } = useCart();
   function discountPercent(val, percent) {
     var discount = val * (percent / 100);
     return (discount + val).toFixed(0);
@@ -35,10 +36,16 @@ const ProdCard = ({ item }) => {
             alt="product"
           />
           <CardBody className="card-body">
-            <StyledText style={{
-              whiteSpace: "nowrap",
-              overflow: "hidden", textOverflow: "ellipsis"
-            }} color="#112B3C" size="0.9rem" className="card-title">
+            <StyledText
+              style={{
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              }}
+              color="#112B3C"
+              size="0.9rem"
+              className="card-title"
+            >
               {item.title}
             </StyledText>
             <StyledText color="#565959" size="0.7rem">
@@ -66,11 +73,18 @@ const ProdCard = ({ item }) => {
               {moment().add(1, "days").format("DD MMMM").toString()}
             </StyledText>
             <br />
-            <StyledButton color="#112B3C" bgImage={`linear-gradient(315deg, #fbb034 0%, #ffdd00 74%);`} bgColor="#fbb034">View details</StyledButton>
+            <StyledButton
+            onClick={()=>addItem(item)}
+              color="#112B3C"
+              bgImage={`linear-gradient(315deg, #fbb034 0%, #ffdd00 74%);`}
+              bgColor="#fbb034"
+            >
+              View details
+            </StyledButton>
           </CardBody>
         </ProductCard>
       </div>
-    </div >
+    </div>
   );
 };
 

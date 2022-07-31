@@ -10,7 +10,7 @@ import {
     StyledText,
 } from "../../styledComponents/styles";
 import Products from "./products";
-
+import { CartProvider } from "react-use-cart";
 const Sidebar = ({ children, mode }) => {
     const theme = (param1, param2) => {
         return mode === "light" ? param1 : param2;
@@ -18,6 +18,7 @@ const Sidebar = ({ children, mode }) => {
     const name = localStorage.getItem("userName")??"";
     const email = localStorage.getItem("userEmail")??"";
     return (
+        <CartProvider>
         <div className="container-fluid page">
             <div className="row">
                 <div className="col-lg-3 col-md-3">
@@ -88,6 +89,7 @@ const Sidebar = ({ children, mode }) => {
                 <div className="col-lg-8 col-md-8">{children}</div>
             </div>
         </div>
+        </CartProvider>
     );
 };
 

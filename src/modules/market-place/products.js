@@ -9,9 +9,16 @@ import {
   getSortedProducts,
   sortingReducer,
 } from "../../redux/reducer/sortingReducer";
-import { Button, SearchBox, SearchIcon } from "../../styledComponents/styles";
+import {
+  Button,
+  ChoiceChip,
+  SearchBox,
+  SearchIcon,
+  StyledText,
+} from "../../styledComponents/styles";
 import { useState } from "react";
 import NoResults from "../../components/noResults";
+
 const Products = ({ mode }) => {
   const data = useSelector((store) => store.reducers.marketReducer);
   const [type, setType] = useState("");
@@ -56,17 +63,26 @@ const Products = ({ mode }) => {
           color={mode === "light" ? "#000" : "#fff"}
         />
         <Dropdown overlay={<DropdownMenu dispatch={dispatch} />}>
-          <Button className="btn d-flex" onClick={(e) => e.preventDefault()}>
+          <StyledText
+            size="12px"
+            className="btn d-flex"
+            onClick={(e) => e.preventDefault()}
+          >
             <p className="me-3">Sort By</p>
             <i className="ri-equalizer-fill"></i>
-          </Button>
+          </StyledText>
         </Dropdown>
       </div>
       <div className="d-flex mt-4 choiceChipGrp">
         {categories.map((item, index) => {
           return (
             <div className="">
-              <Button
+              <ChoiceChip
+                bgColor={
+                  item === type
+                    ? `linear-gradient(315deg, #fefefe 0%, #00a4e4 74%)`
+                    : "none"
+                }
                 key={index}
                 onClick={() => {
                   setType(item);
@@ -74,8 +90,14 @@ const Products = ({ mode }) => {
                 }}
                 className="m-2"
               >
-                {item}
-              </Button>
+                <StyledText
+                  mSize="0.7rem"
+                  size="0.8rem"
+                  color={mode === "light" ? "#112B3C" : "#fff"}
+                >
+                  {item.charAt(0).toUpperCase() + item.slice(1)}
+                </StyledText>
+              </ChoiceChip>
             </div>
           );
         })}
