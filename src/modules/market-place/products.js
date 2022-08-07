@@ -31,7 +31,6 @@ const Products = ({ mode }) => {
   const categories = useSelector(
     (store) => store.reducers.categoryReducer.category
   );
-  console.log(categories);
 
   useEffect(() => {
     dispatchAction(marketAction.marketPlace());

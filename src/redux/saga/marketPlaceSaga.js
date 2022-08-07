@@ -8,7 +8,6 @@ export function* fetchMarketWorker() {
     try {
         yield put({ type: MARKET_LOADING })
         const response = yield call(fakeStoreApi)
-        console.log(response.data.products)
         if (response.status === 200 && response.statusText === "OK") {
             yield put({ type: MARKET_LOADED, data: response.data, products: response.data.products })
         } else {

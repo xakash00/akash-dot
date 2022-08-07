@@ -5,6 +5,7 @@ import { watchFetchWeatherWorker } from "./weatherSaga";
 import { watchFetchMemeWorker } from "./memeSaga";
 import { watchFetchMarketPlaceWorker } from "./marketPlaceSaga";
 import { watchFetchCategoryWorker } from "./categorySaga";
+import { watchProductDetailsWorker } from "./productDetailsSaga";
 
 export default function* rootSaga() {
   yield all([
@@ -15,5 +16,6 @@ export default function* rootSaga() {
     watchFetchMemeWorker(),
     watchFetchMarketPlaceWorker(),
     watchFetchCategoryWorker(),
+    watchProductDetailsWorker(),
   ]);
 }

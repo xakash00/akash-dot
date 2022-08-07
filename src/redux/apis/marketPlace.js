@@ -7,3 +7,7 @@ export const fakeStoreApi = () => {
 export const categoryApi = () => {
   return axios.get("https://dummyjson.com/products/categories");
 };
+
+export const productDetailsApi = (id) => {
+  return axios.get(`https://dummyjson.com/products/${id}`);
+};

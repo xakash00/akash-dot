@@ -17,6 +17,7 @@ import Sidebar from "../modules/market-place/Sidebar";
 import Products from "../modules/market-place/products";
 import Cart from "../modules/market-place/cart";
 import Orders from "../modules/market-place/orders";
+import ProductDetails from "../modules/market-place/productDetails";
 const Index = () => {
   const location = useLocation();
   const currentKey = location.pathname.split("/")[1] || "/";
@@ -57,6 +58,7 @@ const Index = () => {
               <Route element={<Products mode={mode} />} path="/market-place" />
               <Route element={<Cart />} path="/your-cart" />
               <Route element={<Orders />} path="/your-orders" />
+              <Route element={<ProductDetails />} path="/product-details" />
             </Route>
           </Routes>
         </CSSTransition>

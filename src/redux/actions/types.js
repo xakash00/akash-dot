@@ -7,3 +7,4 @@ export const FETCH_WEATHER = "FETCH_WEATHER";
 export const FETCH_MEME = "FETCH_MEME";
 export const FETCH_MARKET = "FETCH_MARKET";
 export const FETCH_CATEGORY = "FETCH_CATEGORY";
+export const PRODUCT_DETAILS = "PRODUCT_DETAILS";

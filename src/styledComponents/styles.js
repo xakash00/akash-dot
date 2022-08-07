@@ -234,3 +234,14 @@ export const ChoiceChip = styled.div`
   background-image: ${props=>props.bgColor};
   cursor: pointer;
 `;
+
+
+export const SliderDiv = styled.div`
+border-radius: 10px;
+height: 20rem;
+overflow: hidden;
+@media (max-width: 768px) {
+  height: 10rem;
+  border-radius: 10px;
+  }
+`

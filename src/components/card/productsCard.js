@@ -10,10 +10,12 @@ import {
 } from "../../styledComponents/styles";
 import moment from "moment";
 import { useCart } from "react-use-cart";
+import { useNavigate } from "react-router-dom";
 
 const ProdCard = ({ item }) => {
   const [isHovered, setIsHovered] = useState(false);
   const { addItem } = useCart();
+  const navigate = useNavigate()
   function discountPercent(val, percent) {
     var discount = val * (percent / 100);
     return (discount + val).toFixed(0);
@@ -73,8 +75,8 @@ const ProdCard = ({ item }) => {
               {moment().add(1, "days").format("DD MMMM").toString()}
             </StyledText>
             <br />
-            <StyledButton
-            onClick={()=>addItem(item)}
+
+            <StyledButton onClick={()=>navigate(`/product-details?id=${item.id}`)}
               color="#112B3C"
               bgImage={`linear-gradient(315deg, #fbb034 0%, #ffdd00 74%);`}
               bgColor="#fbb034"

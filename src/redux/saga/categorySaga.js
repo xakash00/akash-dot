@@ -11,7 +11,6 @@ export function* fetchCategoryWorker() {
   try {
     yield put({ type: CATEGORY_LOADING });
     const response = yield call(categoryApi);
-    console.log(response);
     if (response.status === 200 && response.statusText === "OK") {
       yield put({ type: CATEGORY_LOADED, category: response.data });
     } else {
