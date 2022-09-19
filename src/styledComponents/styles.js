@@ -213,6 +213,19 @@ export const CardBody = styled.div`
     padding: 0.5rem;
   }
 `;
+
+export const DropdownChoice=styled.div`
+background-color: ${props=>props.bgColor};
+color:#fff;
+font-size: 12px;
+height: 1.5rem;
+align-items: center;
+justify-content: center;
+padding: 0.4rem;
+overflow: hidden;
+border: none;
+border-radius: 7px;
+`
 export const ProductImage = styled.img`
   height: 15rem;
   object-fit: cover;

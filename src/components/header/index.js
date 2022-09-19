@@ -4,9 +4,10 @@ import { authEmail } from "../../redux/config";
 import { HamburgerArrow } from "react-animated-burgers";
 import { Button, Sidebar, ThemedText } from "../../styledComponents/styles";
 import "./header.css";
+import { useMediaQuery } from 'react-responsive'
 const Header = ({ toggleMode, mode }) => {
-  console.log(toggleMode, mode);
   const [isLogin, setIsLogin] = useState(false);
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1065px)' })
   useEffect(() => {
     localStorage.getItem("userEmail") && setIsLogin(true);
   }, []);
@@ -40,7 +41,7 @@ const Header = ({ toggleMode, mode }) => {
       <nav
         className={mode === 'light' ? "navbar navbar-expand-lg fixed-top header" : "navbar navbar-expand-lg fixed-top headerActive"}
       >
-        {mobile && (
+        {isTabletOrMobile && (
           <div className="container-fluid">
             <NavLink to="/" className="navbar-brand" href="#">
               <ThemedText color={mode === "light" ? "#000" : "#fff"}>
@@ -56,7 +57,7 @@ const Header = ({ toggleMode, mode }) => {
             </Button>
           </div>
         )}
-        {!mobile && (
+        {!isTabletOrMobile && (
           <div className="container-fluid">
             <NavLink to="/" className="navbar-brand" href="#">
               <ThemedText color={mode === "light" ? "#000" : "#fff"}>

@@ -1,29 +1,73 @@
 import axios from "axios";
-import React, { useRef, useEffect } from "react";
-
+import React, { useRef, useEffect, useState } from "react";
+import useToggle from "../../helperFuncs.js/useToggle";
+import { useMediaQuery } from "react-responsive";
+import Dropdown from "../../components/dropdown/dropdown";
 const Home = () => {
-  const ref = useRef();
-  const handleName = (e) => {
-    ref.current = e.target.value;
-    document.getElementById("test").innerText = ref.current;
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1065px)" });
+  const [isTextChanged, setIsTextChanged] = useToggle();
+  const [data, setData] = useState([]);
+  const handleAdd = (text) => {
+    setData([...data, text]);
   };
-  let url = "https://jsonplaceholder.typicode.com/posts";
-
-  useEffect(() => {
-    console.log("mount");
-  let response = axios.get(url).then(response=>console.log(response))
-  return () => {
-      axios.Cancel();
-    };
-  }, []);
-  console.log(axios.CancelToken)
-
+  const onDelete = (myId) => {
+    const updates = data.filter((each, idx) => idx !== myId);
+    setData(updates);
+  };
   return (
     <div className="page">
-      <input type="text" placeholder="Name" ref={ref} onChange={handleName} />
-      <p id="test"></p>
+      <button onClick={setIsTextChanged}>
+        {isTextChanged ? "Toggled" : "Click to Toggle"}
+      </button>
+      <Dropdown placeholder={"Select..."} data={data} onDelete={onDelete}>
+        <div className="row">
+          {numbers.map((item, index) => {
+            return (
+              <div
+                key={index}
+                style={{ width: "5rem" }}
+                onClick={(e) => {
+                  handleAdd(e.target.textContent);
+                }}
+                className="col-6 me-3 alert alert-primary"
+                role="alert"
+              >
+                {item}
+              </div>
+            );
+          })}
+        </div>
+      </Dropdown>
+      ;
     </div>
   );
 };
 
 export default Home;
+
+const numbers = [
+  "Alpha",
+  "Beta",
+  "Gamma",
+  "Delta",
+  "Epsilon",
+  "Zeta",
+  "Eta",
+  "Theta",
+  "Iota",
+  "Kappa",
+  "Lambda",
+  "Mu",
+  "Nu",
+  "Xi",
+  "Omicron",
+  "Pi",
+  "Rho",
+  "Sigma",
+  "Tau",
+  "Upsilon",
+  "Phi",
+  "Chi",
+  "Psi",
+  "Omega",
+];
