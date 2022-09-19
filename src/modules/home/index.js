@@ -3,6 +3,7 @@ import React, { useRef, useEffect, useState } from "react";
 import useToggle from "../../helperFuncs.js/useToggle";
 import { useMediaQuery } from "react-responsive";
 import Dropdown from "../../components/dropdown/dropdown";
+import { DropdownOptions } from "../../styledComponents/styles";
 const Home = () => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1065px)" });
   const [isTextChanged, setIsTextChanged] = useToggle();
@@ -23,17 +24,16 @@ const Home = () => {
         <div className="row">
           {numbers.map((item, index) => {
             return (
-              <div
+              <DropdownOptions
                 key={index}
-                style={{ width: "5rem" }}
                 onClick={(e) => {
                   handleAdd(e.target.textContent);
                 }}
-                className="col-6 me-3 alert alert-primary"
+                className="col-6 me-3"
                 role="alert"
               >
                 {item}
-              </div>
+              </DropdownOptions>
             );
           })}
         </div>

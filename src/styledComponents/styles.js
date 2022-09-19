@@ -258,3 +258,15 @@ overflow: hidden;
   border-radius: 10px;
   }
 `
+
+export const DropdownOptions = styled.div`
+background-color: ${props=>props.bgColor};
+border-bottom: 1px solid #ccc;
+width:90%;
+  font-family: "Montserrat", sans-serif;
+padding: 0.5rem;
+transition: background-color 0.2s ease-in;
+&:hover{
+  background-color: #ccc;
+}
+`
