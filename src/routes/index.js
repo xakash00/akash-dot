@@ -18,17 +18,17 @@ import Products from "../modules/market-place/products";
 import Cart from "../modules/market-place/cart";
 import Orders from "../modules/market-place/orders";
 import ProductDetails from "../modules/market-place/productDetails";
+import ReactSelection from "../modules/react-select";
 const Index = () => {
   const location = useLocation();
   const currentKey = location.pathname.split("/")[1] || "/";
   const [mode, setMode] = useState("light");
-  const localQuotesObj = []
-
+  const localQuotesObj = [];
 
   const toggleMode = () => {
     if (mode === "light") {
       setMode("dark");
-      document.body.style.backgroundColor = '#09203f';
+      document.body.style.backgroundColor = "#09203f";
     } else {
       setMode("light");
       document.body.style.backgroundColor = "#fff";
@@ -36,8 +36,11 @@ const Index = () => {
   };
 
   useEffect(() => {
-    window.localStorage.setItem("localQuotesObj", JSON.stringify(localQuotesObj));
-  }, [])
+    window.localStorage.setItem(
+      "localQuotesObj",
+      JSON.stringify(localQuotesObj)
+    );
+  }, []);
 
   return (
     <>
@@ -49,12 +52,22 @@ const Index = () => {
               <Route element={<Signup mode={mode} />} path="/sign-up" />
             </Route>
             <Route element={<Home mode={mode} />} path="/" />
+            <Route
+              element={<ReactSelection mode={mode} />}
+              path="/react-select"
+            />
             <Route element={<Tweets mode={mode} />} path="/tweets" />
             <Route
               element={<FavoriteTweets mode={mode} />}
               path="/favourite-tweets"
             />
-            <Route element={<Sidebar mode={mode}><Outlet /></Sidebar>}>
+            <Route
+              element={
+                <Sidebar mode={mode}>
+                  <Outlet />
+                </Sidebar>
+              }
+            >
               <Route element={<Products mode={mode} />} path="/market-place" />
               <Route element={<Cart />} path="/your-cart" />
               <Route element={<Orders />} path="/your-orders" />
