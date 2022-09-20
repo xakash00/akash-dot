@@ -43,16 +43,16 @@ const Dropdown = ({ children, placeholder, data, onDelete }) => {
       <div className={`dropdown_btn`}>
         {data.length !== 0
           ? data
-              .slice(0, 3)
+              .slice(0, 4)
               .map((item, index) => {
                 return (
                   <DropdownChoice
                     bgColor={color[index]}
                     key={index}
-                    className="card"
+                    className="card me-2"
                   >
                     <div className="d-flex align-items-center">
-                      <div>{item}</div>
+                      <div>{item}{console.log(item,index)}</div>
                       <i
                         onClick={() => onDelete(index)}
                         className="ri-close-line ms-2"
@@ -63,7 +63,7 @@ const Dropdown = ({ children, placeholder, data, onDelete }) => {
               })
           : "Select...."}
         <i
-          className={isHover ? "ri-arrow-up-s-fill" : "ri-arrow-down-s-fill"}
+          className={isHover ? "ri-arrow-up-s-fill ms-auto" : "ri-arrow-down-s-fill ms-auto"}
         ></i>
       </div>
       <motion.div

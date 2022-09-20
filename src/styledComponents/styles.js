@@ -12,7 +12,7 @@ export const Sidebar = styled.div`
 `;
 export const Text = styled.div`
   color: ${(props) => props.color};
-  font-size: ${(props) => props.font};
+  font-size: ${(props) => props.font};  
   font-family: Montserrat, sans-serif;
 `;
 
@@ -65,7 +65,6 @@ export const TweetCard = styled.div`
   &:hover {
     box-shadow: 0px 0px 10px #ccc;
   }
-
   @media (max-width: 768px) {
     width: 90%;
   }

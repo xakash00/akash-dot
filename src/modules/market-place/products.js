@@ -104,9 +104,7 @@ const Products = ({ mode }) => {
       <div className="row mt-5">
         {filterData.map((item, index) => {
           return (
-            <div key={index} className="col-lg-4  col-md-6 col-sm-12">
-              <ProdCard item={item} />
-            </div>
+              <ProdCard key={index} item={item} />
           );
         })}
         <div className="text-center">

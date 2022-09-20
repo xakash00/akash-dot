@@ -8,13 +8,17 @@ const Home = () => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1065px)" });
   const [isTextChanged, setIsTextChanged] = useToggle();
   const [data, setData] = useState([]);
+
+  
   const handleAdd = (text) => {
     setData([...data, text]);
   };
+
   const onDelete = (myId) => {
     const updates = data.filter((each, idx) => idx !== myId);
     setData(updates);
   };
+  
   return (
     <div className="page">
       <button onClick={setIsTextChanged}>

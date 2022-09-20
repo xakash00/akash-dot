@@ -21,8 +21,7 @@ const ProdCard = ({ item }) => {
     return (discount + val).toFixed(0);
   }
   return (
-    <div className="">
-      <div>
+      <div className="col-lg-4 col-sm-12 col-md-6 col-xl-4">
         <ProductCard
           hover={isHovered}
           onMouseEnter={() => setIsHovered(true)}
@@ -86,7 +85,6 @@ const ProdCard = ({ item }) => {
           </CardBody>
         </ProductCard>
       </div>
-    </div>
   );
 };
 
