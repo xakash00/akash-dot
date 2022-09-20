@@ -6,9 +6,11 @@ const ReactSelection = () => {
   const formik = useFormik({
     initialValues: {
       selection: "",
+      development: "",
     },
     validationSchema: Yup.object({
       selection: Yup.string().required("Required"),
+      development: Yup.string().required("Required"),
     }),
     onSubmit: (values) => {
       console.log(values);
@@ -22,8 +24,12 @@ const ReactSelection = () => {
   ];
 
   return (
-    <div  className="page">
-      <form style={{width:"10rem"}} className="m-auto" onSubmit={formik.handleSubmit}>
+    <div className="page">
+      <form
+        style={{ width: "30rem" }}
+        className="m-auto"
+        onSubmit={formik.handleSubmit}
+      >
         <Select
           isSearchable={false}
           components={{
@@ -52,7 +58,45 @@ const ReactSelection = () => {
             <p>{formik.errors.selection}</p>
           </div>
         )}
-        <button className="btn ant-btn-primary mt-3" type="submit">Submit</button>
+        <div className="radio-but">
+          <label className="labelText mt-3" htmlFor="inlineRadio2">
+            Do you know development
+          </label>
+          <div className="form-check form-check-inline">
+            <input
+              type="radio"
+              name="development"
+              id="inlineRadio1"
+              value={1}
+              onChange={formik.handleChange}
+            />
+            <label className="labelText" htmlFor="inlineRadio1">
+              Yes
+            </label>
+          </div>
+          <div className="form-check form-check-inline">
+            <input
+              type="radio"
+              name="development"
+              id="inlineRadio2"
+              value={0}
+              onChange={formik.handleChange}
+            />
+            <label className="labelText" htmlFor="inlineRadio2">
+              No
+            </label>
+          </div>
+        </div>
+        {formik.errors.development && formik.touched.development && (
+         <div className="d-flex mt-1 text-danger">
+         {" "}
+         <i className="ri-error-warning-line me-1"></i>
+         <p>{formik.errors.development}</p>
+       </div>
+        )}
+        <button className="btn ant-btn-primary mt-3" type="submit">
+          Submit
+        </button>
       </form>
     </div>
   );
