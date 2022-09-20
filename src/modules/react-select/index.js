@@ -7,10 +7,12 @@ const ReactSelection = () => {
     initialValues: {
       selection: "",
       development: "",
+      checked: [],
     },
     validationSchema: Yup.object({
       selection: Yup.string().required("Required"),
       development: Yup.string().required("Required"),
+      checked: Yup.array().required("Required"),
     }),
     onSubmit: (values) => {
       console.log(values);
@@ -88,12 +90,57 @@ const ReactSelection = () => {
           </div>
         </div>
         {formik.errors.development && formik.touched.development && (
-         <div className="d-flex mt-1 text-danger">
-         {" "}
-         <i className="ri-error-warning-line me-1"></i>
-         <p>{formik.errors.development}</p>
-       </div>
+          <div className="d-flex mt-1 text-danger">
+            {" "}
+            <i className="ri-error-warning-line me-1"></i>
+            <p>{formik.errors.development}</p>
+          </div>
         )}
+        <div className="mt-3">
+          <div className="form-check">
+            <input
+              className="form-check-input"
+              type="checkbox"
+              value="One"
+              onChange={formik.handleChange}
+              id="flexCheckDefault"
+              name="checked"
+            />
+            <label className="form-check-label" htmlFor="flexCheckDefault">
+              One
+            </label>
+          </div>
+        </div>
+        <div className="mt-3">
+          <div className="form-check">
+            <input
+              className="form-check-input"
+              type="checkbox"
+              value="two"
+              onChange={formik.handleChange}
+              id="flexCheckDefault2"
+              name="checked"
+            />
+            <label className="form-check-label" htmlFor="flexCheckDefault2">
+              Two
+            </label>
+          </div>
+        </div>
+        <div className="mt-3">
+          <div className="form-check">
+            <input
+              className="form-check-input"
+              type="checkbox"
+              value="three"
+              onChange={formik.handleChange}
+              id="flexCheckDefault3"
+              name="checked"
+            />
+            <label className="form-check-label" htmlFor="flexCheckDefault3">
+              Three
+            </label>
+          </div>
+        </div>
         <button className="btn ant-btn-primary mt-3" type="submit">
           Submit
         </button>
