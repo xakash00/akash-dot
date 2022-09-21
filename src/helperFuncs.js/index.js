@@ -12,11 +12,13 @@ export const customStyles = {
     background: "#fff",
     // match with the menu
     fontFamily: "Montserrat",
-    borderRadius: "7px",
+    borderRadius: "5px",
+    marginTop:"0.5rem",
+    marginBottom:"0.3rem",
     // Overwrittes the different states of border
-    borderColor: state.isFocused ? "#47ccde" : "#e7dede",
+    borderColor: state.isFocused ? "#47ccde" : "#fff",
     // Removes weird border around container
-    boxShadow: state.isFocused ? null : null,
+    boxShadow: '0px 0px 5px #ccc !important',
     "&:hover": {
       // Overwrittes the different states of border
       borderColor: state.isFocused ? "#47ccde" : "#47ccde",
@@ -45,4 +47,12 @@ export const customStyles = {
       fill: "#47ccde",
     },
   }),
+};
+
+export const formStyles = {
+  border: "none",
+  boxShadow: "0px 0px 5px #ccc",
+  borderRadius: "5px",
+  marginTop:"0.5rem",
+  marginBottom:"0.3rem",
 };

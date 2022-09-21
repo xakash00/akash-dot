@@ -4,8 +4,9 @@ import { Button } from "antd";
 import { Input, InputNumber } from "formik-antd";
 import MultiStepFormContext from "./MultiStepFormContext";
 import Select from "react-select";
-import { customStyles } from "../../helperFuncs.js";
+import { customStyles, formStyles } from "../../helperFuncs.js";
 import { Field } from "formik";
+import { Label } from "../../styledComponents/styles";
 const Details = () => {
   const { details, setDetails, next } = useContext(MultiStepFormContext);
 
@@ -38,20 +39,20 @@ const Details = () => {
         return (
           <div className={"details__wrapper"}>
             <div className={`form__item ${errors.name && "input__error"}`}>
-              <label>Name *</label>
-              <Input name={"name"} />
+              <Label>Name *</Label>
+              <Input style={formStyles} name={"name"} />
               <p className={"error__feedback"}>{errors.name}</p>
             </div>
             <div className={`form__item ${errors.age && "input__error"}`}>
-              <label>Age *</label>
+              <Label>Age *</Label>
               <br />
-              <InputNumber name={"age"} min={0} />
+              <InputNumber  style={formStyles} name={"age"} min={0} />
               <p className={"error__feedback"}>{errors.age}</p>
             </div>
             <div
               className={`form__item ${errors.profession && "input__error"}`}
             >
-              <label>Profession *</label>
+              <Label>Profession *</Label>
               <Select
                 isSearchable={false}
                 components={{
@@ -76,18 +77,20 @@ const Details = () => {
               <p className={"error__feedback"}>{errors.profession}</p>
             </div>
             <div className="row">
-              <label>
+            <Label className="mb-2">Choose Any One </Label>
+
+              <Label className="col-3">
                 <Field type="checkbox" name="checked" value="One" />
                 One
-              </label>
-              <label>
+              </Label>
+              <Label className="col-3">
                 <Field type="checkbox" name="checked" value="Two" />
                 Two
-              </label>
-              <label>
+              </Label>
+              <Label className="col-3">
                 <Field type="checkbox" name="checked" value="Three" />
                 Three
-              </label>
+              </Label>
             </div>
             <p className={"error__feedback"}>{errors.checked}</p>
 
@@ -105,3 +108,5 @@ const Details = () => {
   );
 };
 export default Details;
+
+

@@ -267,3 +267,9 @@ export const DropdownOptions = styled.div`
     background-color: #ccc;
   }
 `;
+
+
+export const Label = styled.label`
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+`

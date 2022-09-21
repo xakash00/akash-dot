@@ -3,6 +3,8 @@ import { Formik } from "formik";
 import { Button } from "antd";
 import { Input } from "formik-antd";
 import MultiStepFormContext from "./MultiStepFormContext";
+import { Label } from "../../styledComponents/styles";
+import { formStyles } from "../../helperFuncs.js";
 const Address = () => {
   const { address, setAddress, next, prev } = useContext(MultiStepFormContext);
   return (
@@ -23,17 +25,17 @@ const Address = () => {
         return (
           <div className={"details__wrapper"}>
             <div className={`form__item ${errors.address1 && "input__error"}`}>
-              <label>Address-1 *</label>
-              <Input name={"address1"} />
+              <Label>Address-1 *</Label>
+              <Input style={formStyles} name={"address1"} />
               <p className={"error__feedback"}>{errors.address1}</p>
             </div>
             <div className={`form__item`}>
-              <label>Address-2</label>
-              <Input name={"address2"} />
+              <Label>Address-2</Label>
+              <Input style={formStyles} name={"address2"} />
             </div>
             <div className={`form__item ${errors.city && "input__error"}`}>
-              <label>City *</label>
-              <Input name={"city"} />
+              <Label>City *</Label>
+              <Input style={formStyles} name={"city"} />
               <p className={"error__feedback"}>{errors.city}</p>
             </div>
             <div
