@@ -12,7 +12,7 @@ export const Sidebar = styled.div`
 `;
 export const Text = styled.div`
   color: ${(props) => props.color};
-  font-size: ${(props) => props.font};  
+  font-size: ${(props) => props.font};
   font-family: Montserrat, sans-serif;
 `;
 
@@ -30,7 +30,6 @@ export const Margin = styled.div`
 `;
 
 export const SearchBox = styled.input`
-
   padding: 1rem;
   height: 2.5rem;
   align-self: center;
@@ -213,18 +212,18 @@ export const CardBody = styled.div`
   }
 `;
 
-export const DropdownChoice=styled.div`
-background-color: ${props=>props.bgColor};
-color:#fff;
-font-size: 12px;
-height: 1.5rem;
-align-items: center;
-justify-content: center;
-padding: 0.4rem;
-overflow: hidden;
-border: none;
-border-radius: 7px;
-`
+export const DropdownChoice = styled.div`
+  background-color: ${(props) => props.bgColor};
+  color: #fff;
+  font-size: 12px;
+  height: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem;
+  overflow: hidden;
+  border: none;
+  border-radius: 7px;
+`;
 export const ProductImage = styled.img`
   height: 15rem;
   object-fit: cover;
@@ -243,29 +242,28 @@ export const ChoiceChip = styled.div`
   padding: 5px 10px 5px 10px;
   white-space: nowrap;
   border-radius: 20px;
-  background-image: ${props=>props.bgColor};
+  background-image: ${(props) => props.bgColor};
   cursor: pointer;
 `;
 
-
 export const SliderDiv = styled.div`
-border-radius: 10px;
-height: 20rem;
-overflow: hidden;
-@media (max-width: 768px) {
-  height: 10rem;
   border-radius: 10px;
+  height: 20rem;
+  overflow: hidden;
+  @media (max-width: 768px) {
+    height: 10rem;
+    border-radius: 10px;
   }
-`
+`;
 
 export const DropdownOptions = styled.div`
-background-color: ${props=>props.bgColor};
-border-bottom: 1px solid #ccc;
-width:90%;
+  background-color: ${(props) => props.bgColor};
+  border-bottom: 1px solid #ccc;
+  width: 90%;
   font-family: "Montserrat", sans-serif;
-padding: 0.5rem;
-transition: background-color 0.2s ease-in;
-&:hover{
-  background-color: #ccc;
-}
-`
+  padding: 0.5rem;
+  transition: background-color 0.2s ease-in;
+  &:hover {
+    background-color: #ccc;
+  }
+`;

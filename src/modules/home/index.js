@@ -25,7 +25,7 @@ const Home = () => {
         {isTextChanged ? "Toggled" : "Click to Toggle"}
       </button>
       <Dropdown placeholder={"Select..."} data={data} onDelete={onDelete}>
-        <div className="row">
+        <div style={{height:"20rem",overflowY:"auto"}} className="row">
           {numbers.map((item, index) => {
             return (
               <DropdownOptions
