@@ -1,9 +1,10 @@
 import { Button, Col, Row } from "antd";
 import React, { useContext } from "react";
 import MultiStepFormContext from "./MultiStepFormContext";
-
+import { useNavigate } from "react-router-dom";
 const Review = () => {
   const { details, address, next, prev } = useContext(MultiStepFormContext);
+  const navigate = useNavigate();
   const userObj = {
     name: details.name,
     age: details.age,
@@ -45,8 +46,8 @@ const Review = () => {
             <Button
               type={"primary"}
               onClick={() => {
-                next();
                 console.log(userObj);
+                navigate("/");
               }}
             >
               Confirm
