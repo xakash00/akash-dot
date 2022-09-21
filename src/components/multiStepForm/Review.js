@@ -8,11 +8,11 @@ const Review = () => {
     name: details.name,
     age: details.age,
     profession: details.profession,
+    checked: details.checked,
     address1: address.address1,
     address2: address.address2,
     city: address.city,
   };
-  console.log(userObj);
   return (
     <div className={"details__wrapper"}>
       <Row>
@@ -21,6 +21,13 @@ const Review = () => {
           <p>Name: {details.name}</p>
           <p>Age: {details.age}</p>
           <p>Profession: {details.profession}</p>
+          Checked:
+          {details.checked.map((item, index) => (
+            <span key={index}>
+              {index > 0 && ", "}
+              <span>{item}</span>
+            </span>
+          ))}
         </Col>
         <Col span={24}>
           <h1>Address</h1>
@@ -35,7 +42,13 @@ const Review = () => {
             <Button type={"default"} onClick={prev}>
               Back
             </Button>
-            <Button type={"primary"} onClick={next}>
+            <Button
+              type={"primary"}
+              onClick={() => {
+                next();
+                console.log(userObj);
+              }}
+            >
               Confirm
             </Button>
           </div>
