@@ -19,6 +19,7 @@ import Cart from "../modules/market-place/cart";
 import Orders from "../modules/market-place/orders";
 import ProductDetails from "../modules/market-place/productDetails";
 import ReactSelection from "../modules/react-select";
+import MapExample from "../modules/map";
 const Index = () => {
   const location = useLocation();
   const currentKey = location.pathname.split("/")[1] || "/";
@@ -52,6 +53,7 @@ const Index = () => {
               <Route element={<Signup mode={mode} />} path="/sign-up" />
             </Route>
             <Route element={<Home mode={mode} />} path="/" />
+            <Route element={<MapExample mode={mode} />} path="/maps" />
             <Route
               element={<ReactSelection mode={mode} />}
               path="/react-select"
