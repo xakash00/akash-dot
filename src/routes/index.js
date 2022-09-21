@@ -20,6 +20,7 @@ import Orders from "../modules/market-place/orders";
 import ProductDetails from "../modules/market-place/productDetails";
 import ReactSelection from "../modules/react-select";
 import MapExample from "../modules/map";
+import MultiStepForm from "../modules/msForm";
 const Index = () => {
   const location = useLocation();
   const currentKey = location.pathname.split("/")[1] || "/";
@@ -54,6 +55,7 @@ const Index = () => {
             </Route>
             <Route element={<Home mode={mode} />} path="/" />
             <Route element={<MapExample mode={mode} />} path="/maps" />
+            <Route element={<MultiStepForm mode={mode} />} path="/form" />
             <Route
               element={<ReactSelection mode={mode} />}
               path="/react-select"
