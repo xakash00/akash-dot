@@ -1,9 +1,9 @@
 import React from 'react'
-import Map from '../../components/map'
+import PolygonMap from '../../components/polygonMap'
 
 const MapExample = () => {
   return (
-    <div className='page'><Map/></div>
+    <div className='page'><PolygonMap/></div>
   )
 }
 
